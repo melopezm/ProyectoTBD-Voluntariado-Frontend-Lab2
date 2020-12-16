@@ -4,7 +4,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
    
-    <h2>¿Quieres ser parte del voluntariado de emergencias?</h2>
+    <h2>¿Quaieres ser parte del voluntariado de emergencias?</h2>
      <h6>Laa gestión de voluntarios en contexto de emergencia
       resulta ser de vital importancia, nos interesa tu colaboración, únete a nosotros.</h6>
       <ul>

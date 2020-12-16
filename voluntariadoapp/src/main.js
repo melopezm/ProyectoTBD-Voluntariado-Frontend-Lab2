@@ -1,8 +1,12 @@
+
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import store from './store'
+import 'leaflet/dist/leaflet.css';  
 import axios from 'axios';
+
 
 //import "./assets/style/style.scss";
 
