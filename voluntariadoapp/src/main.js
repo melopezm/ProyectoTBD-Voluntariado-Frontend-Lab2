@@ -10,6 +10,7 @@ import axios from 'axios';
 
 //import "./assets/style/style.scss";
 
+
 Vue.config.productionTip = false
 
 //Instancia de axios se configura con URL base del backend

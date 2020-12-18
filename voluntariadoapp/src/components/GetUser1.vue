@@ -1,61 +1,48 @@
 <template>
-    <div>hola
-    <tbody>
-        <tr  v-for="user_alias in UserFilter" :key="user_alias.id">
-            <td>{{user_alias}}</td>
-            
-             </tr>
-    </tbody>
-    </div>
-
+<div>
+<button v-on:click="getUsers" class="btn btn-primary" v-if="!lists.length">Ver Voluntarios</button>
+    <ul class="list-group" v-else>
+    <li class="list-group-item">
+        <input type="text" placeholder="Buscar" class="form-control" v-model="fnacimiento">
+       
+    </li>
+    <li v-for="item in searchUser" class="list-group-item" :key="item">
+        {{ item.fnacimiento }}
+    </li>
+    
+</ul>
+</div>
 </template>
 
 
 <script>
-import Axios from 'axios'
-export default {
-    name:'user',
-    data(){
-        return{
-            User: [],
-            UserFilter:[],
-        }
-    },
-    mounted(){
-        Axios.get('http://localhost:8081/volunteers')
-        .then((response) => {
-            console.log(response.data);
-            this.User= response.data;
+   import axios from "axios";
+       export default {
+        name: 'FormularioVoluntario',
+        data(){
+          return{
+             lists: [],
+            fnacimiento: '',
+            }
             
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+          },
+      
+         methods:{
+            getUsers: function () {
+                var urlUsers = 'http://localhost:8081/volunteers';
+                axios.get(urlUsers).then(response => {
+                    this.lists = response.data
+                })
+            }
+        },
+     
+        computed: {
+            searchUser: function () {
+                return this.lists.filter((item) => item.fnacimiento.includes(this.fnacimiento));
 
-       
-    },
-
-     verificarFecha(User){
-       for(const value in User){
-           this.UserFilter= value
-
-       }
-
-    }
-}
-
+            }
+        }};
+  
 </script>
 
 
-
-
-
-
-
-
-
-
-
-<style scoped>
-
-</style>
