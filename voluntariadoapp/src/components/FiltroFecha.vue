@@ -2,16 +2,22 @@
   <div class="container">
 <div>
 
-<button v-on:click="getUsers" class="btn btn-primary" v-if="!Lconcat.length">Ver Voluntarios</button>
+<button v-on:click="getUsers" class="btn btn-primary" v-if="!Lconcat.length">Filtro de fecha</button>
 
-    <ul class="list-group" v-else>
-    <li class="list-group-item">
-           <date-picker v-model="time1" range></date-picker>
-        <input type="text" placeholder="Buscar" class="form-control" v-model="descripcion">
-        
-    </li>
-  
-  
+<ul class="list-group" v-else>
+
+    <div class="col">       
+     <li class="list-group-item">
+         <div class="col">
+          Desde <date-picker v-model="time1" value-type="format" ></date-picker> <br><br>
+          
+           Hasta <date-picker v-model="time2" value-type="format" ></date-picker> <br><br>
+
+            </div>
+         
+     </li>
+     </div>
+     <div class="col">   
 <table class="table">
     <thead class="table-dark">
         <tr>
@@ -19,23 +25,25 @@
             <th scope="col" >Descripcion</th>
             <th scope="col" >Fecha de creacion</th>
         </tr>
-    </thead>
-       <li v-for="item in searchUser" class="list-group-item" :key="item">
-    <tbody>
+    </thead> 
+
+   
+    <li v-for="item in searchDate" class="list-group-item" :key="item">
+      <tbody>
        
-        <tr>
+             <tr>
            
-            <td scope="col">{{item.id}}</td>
-            <td scope="col">{{item.descrip}}</td>
-            <td scope="col">{{item.fecha_de_creacion}}</td>
+                  <td scope="col">{{item.id}}</td>
+                    <td scope="col">{{item.descrip}}</td>
+                        <td scope="col">{{item.fecha_de_creacion}}</td>
            
-        </tr>
+             </tr>
        
     </tbody>
        </li>
   
 </table>
-
+ </div>
 </ul>
 </div>
   </div>
@@ -55,11 +63,12 @@
         data(){
           return{
               time1: null,
-             lists: [],
-             lists2:[],
-             Lconcat: [],
-             descripcion: '',
-            fecha_de_creacion: '',
+              time2:null,
+              lists: [],
+              lists2:[],
+              Lconcat: [],
+              descripcion: '',
+              fecha_de_creacion: '',
             }
             
           },
@@ -84,7 +93,14 @@
             searchUser: function () {
                 return this.Lconcat.filter((item) => item.descrip.includes(this.descripcion));
 
-            }
+            },
+
+        searchDate: function(){
+            return this.Lconcat.filter( (item) => ((item.fecha_de_creacion >= this.time1) && (item.fecha_de_creacion <= this.time2)) ||
+            ((item.fecha_de_creacion <= this.time1) && (item.fecha_de_creacion >= this.time2))
+            );
+        }
+
         }};
   
 </script>

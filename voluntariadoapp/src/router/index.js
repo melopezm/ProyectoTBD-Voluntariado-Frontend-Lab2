@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import VistaRegistro from '../views/VistaRegistro.vue'
 import Formulario from '../views/Formulario.vue'
-import GetUser1 from '../components/GetUser1.vue'
+import FiltroFecha from '../components/FiltroFecha.vue'
+import FiltroDescripcion from '../components/FiltroDescripcion.vue'
 import Map from '../components/Map.vue'
 
 Vue.use(VueRouter)
@@ -26,14 +27,19 @@ Vue.use(VueRouter)
     component: Formulario
   },
   {
-    path: '/getUser1',
-    name: 'getuser1',
-    component: GetUser1
+    path: '/FiltroFecha',
+    name: 'filtroFecha',
+    component: FiltroFecha
   },
   {
     path: '/map',
     name: 'map',
     component: Map
+  },
+  {
+    path: '/FiltroDescripcion',
+    name: 'filtroDescripcion',
+    component: FiltroDescripcion
   }
  
 ]

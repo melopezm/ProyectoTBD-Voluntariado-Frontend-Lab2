@@ -11,6 +11,12 @@
     </div>
   </div>
 
+<ul>
+ <h3> Visualizar logs obtenidos  </h3>
+     
+        </ul>
+
+
 <br><br>
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -55,12 +61,14 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+//import FiltroFecha from '@/components/FiltroFecha.vue'
 
 // import MiComponente from '@/components/MiComponente.vue'
 export default {
   name: 'Home',
   components: {
     HelloWorld,
+    //FiltroFecha
     //MiComponente
   }
 } 
