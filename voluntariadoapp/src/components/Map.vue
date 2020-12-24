@@ -68,10 +68,10 @@ export default {
     LPopup,
     LTooltip
   },
-  data() {
+  data() {   
     return {
       zoom: 13,
-      center: latLng(47.41322, -1.219482),
+      center: latLng(-33.2902002, -70.8917727 ),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',

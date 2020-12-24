@@ -8,7 +8,7 @@ import FiltroFecha from '../components/FiltroFecha.vue'
 import FiltroDescripcion from '../components/FiltroDescripcion.vue'
 import Emergencia from '../components/Emergencia.vue'
 import Map from '../components/Map.vue'
-import GoogleMap from '../components/GoogleMap.vue'
+
 
 Vue.use(VueRouter)
 
@@ -43,11 +43,7 @@ Vue.use(VueRouter)
     component: Emergencia
 
   },
-  { path: '/GoogleMap',
-  name:'GoogleMap',
-  component: GoogleMap
 
-  },
 
 
   {
