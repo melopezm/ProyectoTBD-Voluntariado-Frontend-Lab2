@@ -6,7 +6,9 @@ import VistaRegistro from '../views/VistaRegistro.vue'
 import Formulario from '../views/Formulario.vue'
 import FiltroFecha from '../components/FiltroFecha.vue'
 import FiltroDescripcion from '../components/FiltroDescripcion.vue'
+import Emergencia from '../components/Emergencia.vue'
 import Map from '../components/Map.vue'
+import GoogleMap from '../components/GoogleMap.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +38,18 @@ Vue.use(VueRouter)
     name: 'map',
     component: Map
   },
+  { path:'/emergencia',
+    name:'emergencia',
+    component: Emergencia
+
+  },
+  { path: '/GoogleMap',
+  name:'GoogleMap',
+  component: GoogleMap
+
+  },
+
+
   {
     path: '/FiltroDescripcion',
     name: 'filtroDescripcion',

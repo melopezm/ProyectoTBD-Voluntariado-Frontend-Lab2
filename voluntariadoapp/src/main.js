@@ -6,6 +6,14 @@ import router from './router/index'
 import store from './store'
 import 'leaflet/dist/leaflet.css';  
 import axios from 'axios';
+import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyALTWP69vAwL158hkj47hXe0w_IwnAIwdQ",
+    libraries: "places" // necessary for places input
+  },
+});
 
 
 //import "./assets/style/style.scss";
