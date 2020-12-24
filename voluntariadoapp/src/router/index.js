@@ -8,6 +8,7 @@ import FiltroFecha from '../components/FiltroFecha.vue'
 import FiltroDescripcion from '../components/FiltroDescripcion.vue'
 import Emergencia from '../components/Emergencia.vue'
 import Map from '../components/Map.vue'
+import Tarea from '../components/Tarea.vue'
 
 
 Vue.use(VueRouter)
@@ -41,6 +42,11 @@ Vue.use(VueRouter)
   { path:'/emergencia',
     name:'emergencia',
     component: Emergencia
+
+  },
+  { path:'/tarea',
+    name:'tarea',
+    component: Tarea
 
   },
 

@@ -1,31 +1,35 @@
-
 <template>
 
 <div class="container">
-  <h1>Registro de emergencias</h1>
+    <h1>Registro de tareas</h1>
   <div class="form-group">
-    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la emergencia.." v-model='nombre'> <br>
-    <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion de la emergencia.." v-model='descripcion'><br>
-    <h6>Inicio<date-picker v-model="finicio" value-type="format" ></date-picker> 
-     Termino<date-picker v-model="ffin" value-type="format" ></date-picker> <br>
-    <div class="row">
-    <input type="radio" id="Institucion 1" value="1" v-model="id_institucion">Institucion 1<br>
-    <input type="radio" id="Institucion 2" value="2" v-model="id_institucion">Institucion 2<br>
-    <input type="radio" id="Institucion 3" value="3" v-model="id_institucion">Institucion 3<br>
-    <input type="radio" id="Institucion 4" value="4" v-model="id_institucion">Institucion 4<br> <br> <br>
-    <input type="radio" id="Institucion 5" value="5" v-model="id_institucion">Institucion  5<br>
-    <br> <br>
-    </div></h6>
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la tarea.." v-model='nombre'> <br>
+    <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion de la tarea.." v-model='descripcion'><br>    
+    <input type="number" id="n_voluntarios" name="n_voluntarios" placeholder="Numero de voluntarios" min="1" v-model="nvoluntarios"> <br>
     
+   <h6> Inicio <date-picker v-model="finicio" value-type="format" ></date-picker> 
+        Termino<date-picker v-model="ffin" value-type="format" ></date-picker> <br><br>
+        
        
    
+     <!--   <div class="row">
+     <input type="radio" id="emergencia 0" value="0" v-model="id_emergencia">Emergencia 0<br>        
+    <input type="radio" id="emergencia 1" value="1" v-model="id_emergencia">Emergencia 1<br>
+    <input type="radio" id="emergencia 2" value="2" v-model="id_emergencia">Emergencia 2<br>
+    <input type="radio" id="emergencia 3" value="3" v-model="id_emergencia">Emergencia 3<br>
+    <input type="radio" id="emergencia 4" value="4" v-model="id_emergencia">Emergencia 4<br> <br> <br>
+    <input type="radio" id="emergencia 5" value="5" v-model="id_emergencia">Emergencia 5<br> <br> <br>
+    <br> <br>
+
+        <input type="radio" id="Estado 0" value="0" v-model="id_estado">Estado 0
+        <input type="radio" id="Estado 1" value="1" v-model="id_estado">Estado 1
+        <input type="radio" id="Estado 3" value="2" v-model="id_estado">Estado 2
+    <br> <br>
 
 
-
-  
-
-    
-    
+    </div>
+    -->
+    </h6>
       
   
   
@@ -33,7 +37,6 @@
   <div style="height: 500px; width: 100%">
     <div style="height: 200px overflow: auto;">
      <!-- <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p> -->
-     
      
 
      
@@ -53,25 +56,14 @@
       />
       <l-marker :lat-lng="withPopup">
         <l-popup>
-          <div @click="innerClick">
-            I am a popup
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
+         
         </l-popup>
       </l-marker>
       <l-marker :lat-lng="withTooltip">
         <l-tooltip :options="{ permanent: true, interactive: true }">
           <div @click="innerClick">
-            I am a tooltip
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
+           
+          
           </div>
         </l-tooltip>
       </l-marker>
@@ -79,9 +71,15 @@
      <h6><p>Coordenadas ingresadas ({{ currentCenter.lat}}, {{ currentCenter.lng}}) Con un zoom de: {{ currentZoom }}</p>
       </h6>
       
-      <button class="btn btn-primary" v-on:click="register">Registrar emergencia</button>
+      <button class="btn btn-primary" v-on:click="register">Registrar tarea</button>
+     
   </div>
+
+
+  
 </div>
+
+
 </template>
 
 <script>
@@ -107,8 +105,10 @@ export default {
       descripcion:'',
       finicio:null,
       ffin:null,
-      id_institucion:null,
+      nvoluntarios:null,
       id_estado:'0',
+      id_emergencia:'1',
+      ninscritos:'0',
     
 
 
@@ -141,15 +141,18 @@ export default {
     },
 
           register: function (){
-            axios.post('http://localhost:8081/emergency', {
+            axios.post('http://localhost:8081/tasks', {
               longitude: this.currentCenter.lat,
               latitude:this.currentCenter.lng,
               nombre:this.nombre,
               descrip:this.descripcion,
               finicio:this.finicio,
               ffin:this.ffin,
-              id_institucion:this.id_institucion,
-              id_estado:this.id_estado
+              cant_vol_requeridos:this.nvoluntarios,
+              cant_vol_inscritos:this.ninscritos,  
+              id_estado:this.id_estado,
+              id_emergencia:this.id_emergencia
+
             
         
             })
@@ -168,13 +171,17 @@ export default {
 };
 </script>
 
-<style scoped >
-html{
-  font-size: 150px;
-}
-
-
+<style scoped>
 input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(184, 171, 171);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -237,7 +244,10 @@ textarea {
   margin  : 10px 0 0 -10px;
   width   : 340px;
   height  : 360px;
-
+   
   resize  : none;
+}
+a{
+    color:black
 }
 </style>
