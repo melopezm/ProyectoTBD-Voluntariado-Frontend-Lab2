@@ -36,7 +36,7 @@
 <div class="row">
   <div class="col">
     <div class="panel panel-default">
-    <div class="form-goup">
+    <div class="form-group">
       <label for="Habilidad 1"></label>
      <input type="checkbox" id="Habilidad 1" value="1" v-model="abilities">Habilidad 1
         <label for="Habilidad 2"></label>
