@@ -5,16 +5,12 @@
     <div style="height: 200px overflow: auto;">
       <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p>
       <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p>
-      <button @click="showLongText">
-        Toggle long popup
-      </button>
+     
       
       <button class="btn btn-primary" v-on:click="register">Crear tarea</button>
      
 
-      <button @click="showMap = !showMap">
-        Toggle map
-      </button>
+     
     </div>
     <l-map
       v-if="showMap"
@@ -102,8 +98,8 @@ export default {
 
           register: function (){
             axios.post('http://localhost:8081/emergency', {
-              longitude: this.center.lat,
-              latitude:this.center.lng
+              longitude: this.currentCenter.lat,
+              latitude:this.currentCenter.lng
             
         
             })
