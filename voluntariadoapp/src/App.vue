@@ -13,7 +13,7 @@
         <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">Log in</a>
+        <a class="nav-link" href="/Formulario">Log in</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Mi perfil</a>
@@ -23,6 +23,12 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Voluntarios</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/tarea">Tareas</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/emergencia">Emergencias</a>
       </li>
 
 

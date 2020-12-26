@@ -11,10 +11,19 @@
     </div>
   </div>
 
-<ul>
- <h3> Visualizar logs obtenidos  </h3>
-     
-        </ul>
+
+   <div class="mx-auto">
+        <h4> Ir a registro de tareas </h4> 
+        <router-link to="/tarea"> <button class="btn btn-primary">Tarea </button></router-link>  
+        <h4> Ir a registro de emergencia  </h4>   
+        <router-link to="/emergencia"> <button class="btn btn-primary">Emergencia </button></router-link>
+        <h4>Visualizacion de log filtro por fecha</h4> 
+        <router-link to="/filtrofecha"> <button class="btn btn-primary">Filtro fecha </button></router-link>
+        <h4>Visualizacion de log filtro por descripcion/nombre</h4> 
+        <router-link to="/filtrodescripcion"> <button class="btn btn-primary">Filtro nombre </button></router-link>
+       
+    </div>
+ 
 
 
 <br><br>

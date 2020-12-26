@@ -2,18 +2,16 @@
   <div class="container">
 <div>
 
-<button v-on:click="getUsers" class="btn btn-primary" v-if="!Lconcat.length">Filtro por descripcion</button>
-
-
-    <ul class="list-group" v-else>
-
+<ul>
         <div class="col">       
         <li class="list-group-item">
                 <div class="col">
                     <input type="text" placeholder="Buscar por nombre" class="form-control" v-model="nombre"> <br>
                     <input type="text" placeholder="Buscar por descripcion" class="form-control" v-model="descripcion"> <br>
                   
-                    
+                    <button v-on:click="getUsers" class="btn btn-primary" >Filtro por descripcion</button>
+
+
                 </div>
         </li>
         </div>

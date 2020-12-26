@@ -2,9 +2,7 @@
   <div class="container">
 <div>
 
-<button v-on:click="getUsers" class="btn btn-primary" v-if="!Lconcat.length">Filtro de fecha</button>
-
-<ul class="list-group" v-else>
+<ul>
 
     <div class="col">       
      <li class="list-group-item">
@@ -13,6 +11,7 @@
           
            Hasta <date-picker v-model="time2" value-type="format" ></date-picker> <br><br>
 
+           <button v-on:click="getUsers" class="btn btn-primary" >Filtro de fecha</button>
             </div>
          
      </li>
