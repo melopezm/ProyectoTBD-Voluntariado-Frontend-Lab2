@@ -142,8 +142,8 @@ export default {
 
           register: function (){
             axios.post('http://localhost:8081/tasks', {
-              longitude: this.currentCenter.lat,
-              latitude:this.currentCenter.lng,
+              longitude: this.currentCenter.lng,
+              latitude:this.currentCenter.lat,
               nombre:this.nombre,
               descrip:this.descripcion,
               finicio:this.finicio,
