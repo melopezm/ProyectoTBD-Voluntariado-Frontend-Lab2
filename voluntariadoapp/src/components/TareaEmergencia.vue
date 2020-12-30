@@ -7,31 +7,37 @@
         <li class="list-group-item">
                 <div class="col">
                    
-                    <button v-on:click="getUsers" class="btn btn-primary" >Emergencias Activas</button>
+                    <button v-on:click="getUsers" class="btn btn-primary" >Tareas en Emergencias Activas</button>
 
 
                 </div>
         </li>
         </div>
         <div class="col">
-
- 
+            <div class="row">
+        <th scope="col">Nombre   </th> 
+        <th scope="col">Descripcion tarea  </th>
+        <th scope="col">Id emergencia  </th>
+        <th scope="col">Longitud  </th>
+        <th scope="col">Latitud</th>
+            </div>
     <table class="table">
     
-
+        
     <li v-for="item in searchActive" class="list-group-item" :key="item">
+                 
+      <ul v-for="item2 in searchName" class="list-group-item" :key="item2"> 
+             <row v-if="item.id == item2.id">
+             <td>{{item2.nombre}}</td>
+               <td >{{item2.descrip}}</td>
+                 <td >{{item2.id_emergencia}}</td>
+                   <td >{{item2.longitude}}</td>
+                     <td >{{item2.latitude}}</td>
 
-      <tbody>
+             </row>
        
-             <tr>
-                
-                  id<td scope="col">{{item.id}}</td>
-                 estado <td scope="col">{{item.id_estado}}</td>
-                 id_emergencia <td scope="col">{{item.id_emergencia}}</td>
-           
-             </tr>
-       
-      </tbody>
+      </ul>
+      
     </li>
 
     </table>
@@ -62,6 +68,7 @@
               lists: [],
                listaIds: '1', 
               lists2:[],
+              ListId:[],
               listaTareaEmergencia:[],
               laux:[],
               Lconcat: [],
@@ -101,15 +108,7 @@
 
             },
 
-            filtrarTareaEmergencia: function(){
-               var listaux = this.lists.filter((item) => item.id_estado ==1).slice();
-               var varLid;
-               listaux.forEach(element => varLid.push(element) );    
-                return varLid
-              
-                
-                
-            }
+            
             
              
 

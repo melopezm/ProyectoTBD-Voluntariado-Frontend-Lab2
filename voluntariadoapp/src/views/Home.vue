@@ -21,6 +21,8 @@
         <router-link to="/filtrofecha"> <button class="btn btn-primary">Filtro fecha </button></router-link>
         <h4>Visualizacion de log filtro por descripcion/nombre</h4> 
         <router-link to="/filtrodescripcion"> <button class="btn btn-primary">Filtro nombre </button></router-link>
+        <h4>Visualizacion de tarea de emergencia activa</h4> 
+        <router-link to="/TareaEmergencia"> <button class="btn btn-primary">Tareas Emergencias activas </button></router-link>
        
     </div>
  

@@ -12,23 +12,7 @@
         
        
    
-     <!--   <div class="row">
-     <input type="radio" id="emergencia 0" value="0" v-model="id_emergencia">Emergencia 0<br>        
-    <input type="radio" id="emergencia 1" value="1" v-model="id_emergencia">Emergencia 1<br>
-    <input type="radio" id="emergencia 2" value="2" v-model="id_emergencia">Emergencia 2<br>
-    <input type="radio" id="emergencia 3" value="3" v-model="id_emergencia">Emergencia 3<br>
-    <input type="radio" id="emergencia 4" value="4" v-model="id_emergencia">Emergencia 4<br> <br> <br>
-    <input type="radio" id="emergencia 5" value="5" v-model="id_emergencia">Emergencia 5<br> <br> <br>
-    <br> <br>
 
-        <input type="radio" id="Estado 0" value="0" v-model="id_estado">Estado 0
-        <input type="radio" id="Estado 1" value="1" v-model="id_estado">Estado 1
-        <input type="radio" id="Estado 3" value="2" v-model="id_estado">Estado 2
-    <br> <br>
-
-
-    </div>
-    -->
     </h6>
       
   
